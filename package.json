@@ -1,0 +1,14 @@
+{
+  "name": "io-radio-player",
+  "version": "1.0.0",
+  "description": "Player for IO Radio",
+  "main": "src/main.js",
+  "scripts": {
+    "serve": "http-server",
+  },
+  "author": "Sarcoma",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^0.12.1"
+  }
+}
