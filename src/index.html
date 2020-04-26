@@ -13,17 +13,30 @@
             margin: 0;
             padding: 0;
             color: #1d1d1b;
+            font-family: "Avenir Next", Avenir, Helvetica, Tahoma, sans-serif;
+            text-align: center;
+            background: #ffffff;
         }
+
+        h1, h2, h3, h4, h5, h6, p {
+            margin: 0;
+            padding: 0;
+            font-size: 11px;
+        }
+
         .canvas-wrapper {
-            padding-bottom: 16px;
+            padding-bottom: 14px;
         }
+
         .button {
             border: none;
             background: none;
         }
+
         .controls-holder {
             display: flex;
         }
+
         .button--player-control {
             width: 40px;
             height: 40px;
@@ -33,25 +46,31 @@
             justify-content: center;
             align-content: center;
         }
+
         .button--player-control svg {
             fill: #4fb051;
         }
+
         .button--play svg {
             width: 16px;
             height: auto;
         }
+
         .button--mute svg {
             width: 24px;
             height: auto;
         }
+
         .button--unmute svg {
             width: 24px;
             height: auto;
         }
+
         .button--pause svg {
             width: 17px;
             height: auto;
         }
+
         .player-bar {
             display: flex;
             justify-content: space-between;
@@ -60,10 +79,21 @@
             margin-bottom: 16px;
         }
 
+        .current-show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 12px;
+            box-shadow: 0 -4px 8px rgba(29, 29, 27, 0.2);
+            margin-bottom: 0;
+            height: 68px;
+        }
+
         .logo {
             width: 110px;
             height: auto;
         }
+
         input[type="range"] {
             -webkit-appearance: none;
             background-color: transparent;
@@ -72,9 +102,11 @@
             top: -2px;
             margin: 11.5px 0;
         }
+
         input[type="range"]:focus {
             outline: none;
         }
+
         input[type="range"]::-webkit-slider-runnable-track {
             width: 100%;
             height: 4px;
@@ -84,6 +116,7 @@
             border-radius: 8px;
             border: 0 solid rgba(79, 176, 81, 0.2);
         }
+
         input[type="range"]::-webkit-slider-thumb {
             box-shadow: 2.1px 2.1px 3.8px rgba(7, 7, 17, 0.15), 0 0 2.1px rgba(14, 14, 35, 0.15);
             height: 20px;
@@ -94,9 +127,11 @@
             -webkit-appearance: none;
             margin-top: -8px;
         }
+
         input[type="range"]:focus::-webkit-slider-runnable-track {
             background: #4fb051;
         }
+
         input[type="range"]::-moz-range-track {
             width: 100%;
             height: 4px;
@@ -106,6 +141,7 @@
             border-radius: 8px;
             border: 0 solid rgba(79, 176, 81, 0.2);
         }
+
         input[type="range"]::-moz-range-thumb {
             box-shadow: 2.1px 2.1px 3.8px rgba(7, 7, 17, 0.15), 0 0 2.1px rgba(14, 14, 35, 0.15);
             height: 20px;
@@ -114,6 +150,7 @@
             background: #1d1d1b;
             cursor: pointer;
         }
+
         input[type="range"]::-ms-track {
             width: 100%;
             height: 4px;
@@ -122,18 +159,21 @@
             border-color: transparent;
             color: transparent;
         }
+
         input[type="range"]::-ms-fill-lower {
             background: #4fb051;
             border: 0 solid rgba(79, 176, 81, 0.2);
             border-radius: 4.5px;
             box-shadow: 1px 1px 1px rgba(7, 7, 17, 0.15), 0 0 1px rgba(79, 176, 81, 0.2);
         }
+
         input[type="range"]::-ms-fill-upper {
             background: #4fb051;
             border: 0 solid rgba(79, 176, 81, 0.2);
             border-radius: 4.5px;
             box-shadow: 1px 1px 1px rgba(79, 176, 81, 0.4), 0 0 1px rgba(79, 176, 81, 0.2);
         }
+
         input[type="range"]::-ms-thumb {
             box-shadow: 2.1px 2.1px 3.8px rgba(7, 7, 17, 0.15), 0 0 2.1px rgba(14, 14, 35, 0.15);
             width: 6px;
@@ -142,45 +182,52 @@
             cursor: pointer;
             height: 4px;
         }
+
         input[type="range"]:focus::-ms-fill-lower {
             background: #4fb051;
         }
+
         input[type="range"]:focus::-ms-fill-upper {
             background: #4fb051;
         }
     </style>
 </head>
 <body>
-<audio id="radio-stream" src="https://webcast.ioradio.co.uk:8001/ioradio.mp3"></audio>
+<audio id="radio-stream" src="/assets/audio/demo.mp3"></audio>
+<!--<audio id="radio-stream" src="https://webcast.ioradio.co.uk:8001/ioradio.mp3"></audio>-->
 <div class="player-bar">
-    <div class="logo-holder">
-        <img class="logo" src="/assets/img/small-io-radio-logo_green.svg" alt="IO Radio">
-    </div>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-        <title>Play</title>
-        <path fill="currentColor"
-              d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
-    </svg>
+    <a href="https://ioradio.co.uk/" title="Visit IO Radio">
+        <div class="logo-holder">
+            <img class="logo" src="/assets/img/small-io-radio-logo_green.svg" alt="IO Radio">
+        </div>
+    </a>
     <div class="controls-holder">
         <button id="play" class="button button--play button--player-control">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <title>Play</title>
-                <path fill="currentColor"
-                      d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                <path
+                    fill="currentColor"
+                    d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"
+                ></path>
             </svg>
         </button>
         <input title="volume" id="volume" type="range" value="0.5" min="0" max="1" step="0.01"/>
         <button id="mute" class="button button--mute button--player-control">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                 <title>Mute</title>
-                <path fill="currentColor"
-                      d="M215.03 71.05L126.06 160H24c-13.26 0-24 10.74-24 24v144c0 13.25 10.74 24 24 24h102.06l88.97 88.95c15.03 15.03 40.97 4.47 40.97-16.97V88.02c0-21.46-25.96-31.98-40.97-16.97zm233.32-51.08c-11.17-7.33-26.18-4.24-33.51 6.95-7.34 11.17-4.22 26.18 6.95 33.51 66.27 43.49 105.82 116.6 105.82 195.58 0 78.98-39.55 152.09-105.82 195.58-11.17 7.32-14.29 22.34-6.95 33.5 7.04 10.71 21.93 14.56 33.51 6.95C528.27 439.58 576 351.33 576 256S528.27 72.43 448.35 19.97zM480 256c0-63.53-32.06-121.94-85.77-156.24-11.19-7.14-26.03-3.82-33.12 7.46s-3.78 26.21 7.41 33.36C408.27 165.97 432 209.11 432 256s-23.73 90.03-63.48 115.42c-11.19 7.14-14.5 22.07-7.41 33.36 6.51 10.36 21.12 15.14 33.12 7.46C447.94 377.94 480 319.54 480 256zm-141.77-76.87c-11.58-6.33-26.19-2.16-32.61 9.45-6.39 11.61-2.16 26.2 9.45 32.61C327.98 228.28 336 241.63 336 256c0 14.38-8.02 27.72-20.92 34.81-11.61 6.41-15.84 21-9.45 32.61 6.43 11.66 21.05 15.8 32.61 9.45 28.23-15.55 45.77-45 45.77-76.88s-17.54-61.32-45.78-76.86z"></path>
+                <path
+                    fill="currentColor"
+                    d="M215.03 71.05L126.06 160H24c-13.26 0-24 10.74-24 24v144c0 13.25 10.74 24 24 24h102.06l88.97 88.95c15.03 15.03 40.97 4.47 40.97-16.97V88.02c0-21.46-25.96-31.98-40.97-16.97zm233.32-51.08c-11.17-7.33-26.18-4.24-33.51 6.95-7.34 11.17-4.22 26.18 6.95 33.51 66.27 43.49 105.82 116.6 105.82 195.58 0 78.98-39.55 152.09-105.82 195.58-11.17 7.32-14.29 22.34-6.95 33.5 7.04 10.71 21.93 14.56 33.51 6.95C528.27 439.58 576 351.33 576 256S528.27 72.43 448.35 19.97zM480 256c0-63.53-32.06-121.94-85.77-156.24-11.19-7.14-26.03-3.82-33.12 7.46s-3.78 26.21 7.41 33.36C408.27 165.97 432 209.11 432 256s-23.73 90.03-63.48 115.42c-11.19 7.14-14.5 22.07-7.41 33.36 6.51 10.36 21.12 15.14 33.12 7.46C447.94 377.94 480 319.54 480 256zm-141.77-76.87c-11.58-6.33-26.19-2.16-32.61 9.45-6.39 11.61-2.16 26.2 9.45 32.61C327.98 228.28 336 241.63 336 256c0 14.38-8.02 27.72-20.92 34.81-11.61 6.41-15.84 21-9.45 32.61 6.43 11.66 21.05 15.8 32.61 9.45 28.23-15.55 45.77-45 45.77-76.88s-17.54-61.32-45.78-76.86z"
+                ></path>
             </svg>
         </button>
     </div>
 </div>
 <div class="canvas-wrapper">
     <canvas id="canvas"></canvas>
+</div>
+<div id="current-show" class="current-show">
+
 </div>
 <script>
     // https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API
@@ -237,11 +284,81 @@
     const mute = document.getElementById('mute');
     const volume = document.getElementById('volume');
     const canvas = document.getElementById('canvas');
+    const currentShowView = document.getElementById('current-show');
     let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerWidth / 8;
+    let height = canvas.height = 60;
     const context = canvas.getContext('2d');
     const isPlaying = makeToggle(false);
     const isMuted = makeToggle(false);
+    const currentShow = {
+        state: {
+            title: 'Loading...',
+            description: '',
+            presenters: [],
+            times: '',
+        },
+        set: (data, times) => {
+            this.state = {
+                title: data.radio_show.name,
+                description: data.radio_show.description,
+                presenters: data.radio_show.presenters.map(p => p.name),
+                times
+            }
+        },
+        get: () => this.state,
+        update: () => {
+            const holder = document.createElement('div');
+            const title = document.createElement('h2');
+            const description = document.createElement('p');
+            const presenters = document.createElement('p');
+            const times = document.createElement('p');
+            holder.classList.add('show-holder');
+            title.classList.add('show-title');
+            description.classList.add('show-description');
+            presenters.classList.add('show-presenters');
+            times.classList.add('show-times');
+            title.innerText = this.state.title;
+            description.innerText = this.state.description;
+            presenters.innerText = 'Presented by ' + this.state.presenters.join(', ');
+            times.innerText = this.state.times;
+            holder.append(title);
+            holder.append(presenters);
+            holder.append(times);
+            currentShowView.innerHTML = "";
+            currentShowView.append(holder);
+        }
+    };
+
+    const padTime = (time) => {
+        while(time.toString().length < 2) {
+            time = "0"+time;
+        }
+        return time;
+    }
+
+    const getTimes = (startTime, endTime) =>
+        `${startTime.getHours()}:${padTime(startTime.getMinutes())}—` +
+        `${endTime.getHours()}:${padTime(endTime.getMinutes())}`
+
+    function requestListener() {
+        const data = JSON.parse(this.responseText);
+        console.log(data);
+        const startTime = new Date(data.start_time);
+        const endTime = new Date(data.end_time);
+        const now = new Date();
+        currentShow.set(data, getTimes(startTime, endTime));
+        currentShow.update();
+        setTimeout(getCurrentShow, endTime.getTime() + (30 * 1000) - now.getTime())
+    }
+
+    const getCurrentShow = () => {
+        const oReq = new XMLHttpRequest();
+        oReq.addEventListener("load", requestListener);
+        oReq.open("GET", "https://admin.ioradio.co.uk/api/v1/schedule/current/show");
+        oReq.send();
+    };
+
+    getCurrentShow();
 
     const initAudioContext = () => {
         if(!audioContext) {
@@ -291,17 +408,14 @@
 
     const handleResize = () => {
         width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerWidth / 8;
     };
 
     play.addEventListener('click', handlePlayClick);
     mute.addEventListener('click', handleMuteClick);
     volume.addEventListener('change', handleVolumeChange);
     window.addEventListener('resize', handleResize);
-    const particles = [];
-    let spacer = 0;
 
-    function drawDots(posX, y, diameter, y2) {
+    const drawDots = (posX, y, diameter, y2) => {
         context.beginPath();
         context.arc(posX, y, diameter / 2, 0, 2 * Math.PI);
         context.fill();
@@ -310,7 +424,7 @@
             context.arc(posX, y2, diameter / 2, 0, 2 * Math.PI);
             context.fill();
         }
-    }
+    };
 
     const draw = () => {
         if(!analyser) {

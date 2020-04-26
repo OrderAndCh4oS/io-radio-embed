@@ -1,2 +1,3 @@
 .idea
 .env
+push-io-radio-embed='rsync -avm --delete --progress /Users/seancooper/WebstormProjects/io-radio-player sarcoma@178.62.38.187:/var/www/io-radio-embed'
